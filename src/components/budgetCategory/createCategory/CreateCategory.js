@@ -3,7 +3,7 @@ import "./CreateCategory.css";
 import ResponseMessage from "../../../globalresources/modals/ResponseMessage";
 import Loader from "../../../globalresources/Loader";
 import {baseEndpoint} from "../../../globalresources/Config";
-
+import {Link} from "react-router-dom";
 function CreateCategory() {
   const [budgetCategoryName, setBudgetCategoryName]= useState("");
 
@@ -48,8 +48,11 @@ function CreateCategory() {
       <img className="ellipse-4-XKw" src="/assets/ellipse-4-f3X.png" />
       <div className="frame-8794-Sho">
         <div className="frame-8780-ySq">
-          <img className="back-arrow-Gwj" src="/assets/back-arrow-YD7.png" />
-          <p className="back-ckh">Back</p>
+          <Link to="/decapay/budget-category" className="back-zbj">
+          <img className="back-arrow-f3f" src="/assets/back-arrow.png" />
+          </Link>
+         
+         
         </div>
         <div className="frame-8793-h1T">
           <p className="what-do-you-usually-spend-on-qNZ">
