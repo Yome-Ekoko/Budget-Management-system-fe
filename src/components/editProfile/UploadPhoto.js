@@ -12,6 +12,10 @@ function UploadPhoto(){
     const [image, setImage] = useState(null);
     const [imageUrl, setImageUrl]= useState('');
 
+    const refreshPage = () => {
+        window.location.reload(false);
+      }
+
     useEffect(() => {
 
         const url = localStorage.getItem("imagePath");
@@ -44,6 +48,7 @@ function UploadPhoto(){
         ).then((result) => {
             setImageUrl(result.imageUrl)
             localStorage.setItem("imagePath",result.imageUrl);
+            refreshPage();
             console.log('success', result)
         }).catch((error)=>{
             console.log(error)
@@ -76,7 +81,7 @@ function UploadPhoto(){
                 <div>
                     <form onSubmit={handleUpload}>
                         <button type="submit" className="btn btn-success  mb-3 mx-4"><input type="file" onChange={handleFile}/></button>
-                        <button type="submit" className="btn btn-success btn-lg mb-3">Upload</button>
+                        <button type="submit" className="btn btn-success btn-lg mb-3" > Upload</button>
                     </form>
                 </div>
                 {/*=============================================================================*/}
