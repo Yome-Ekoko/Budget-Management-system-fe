@@ -15,6 +15,10 @@ function BudgetCreated() {
   const [budgetItem, setBudgetItem] = useState({});
   const [budgetLineItemList, setBudgetLineItemList] = useState([]);
 
+  const refreshPage = () => {
+    window.location.reload(false);
+  }
+
   useEffect(() => {
     if (token !== null) {
       getBudgetItem();
@@ -38,6 +42,7 @@ function BudgetCreated() {
 
   const createBudgetHandler = () => {
     setItemModal(true);
+    refreshPage();
   };
 
   return (
