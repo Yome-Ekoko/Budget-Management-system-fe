@@ -7,6 +7,7 @@ import {baseEndpoint} from "../../globalresources/Config";
 import "./EditProfile.css";
 import expenseListModal from "../modals/ExpenseListModal";
 import {elementSelector} from "../../globalresources/elementSelector";
+import "./UploadPhoto.css"
 
 function UploadPhoto(){
     const [image, setImage] = useState(null);
@@ -60,9 +61,11 @@ function UploadPhoto(){
     return(
         <div className="sign-up-decapay-3kM">
             <div className="frame-8671-Yh7">
+                <div className=" my-4"><h2>UPLOAD PHOTO</h2></div>
+                <div id="frame" className="container">
                 <div className="frame-8670-u1s">
                     <a
-                        className="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+                        className="nav-link dropdown-toggle hidden-arrow d-flex align-items-center my-4"
                         href="#!"
                         id="navbarDropdownMenuLink"
                         role="button"
@@ -83,6 +86,7 @@ function UploadPhoto(){
                         <button type="submit" className="btn btn-success  mb-3 mx-4"><input type="file" onChange={handleFile}/></button>
                         <button type="submit" className="btn btn-success btn-lg mb-3" > Upload</button>
                     </form>
+                </div>
                 </div>
                 {/*=============================================================================*/}
 
