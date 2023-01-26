@@ -39,6 +39,10 @@ function EditProfile(){
     // const [imageUrl, setImageUrl]= useState('');
 
     const handleSubmit = async (e) => {
+        setisSpinning(true);
+        setResponseMessage(null);
+
+
         e.preventDefault();
         const updateUser = {
             firstName:firstName,
@@ -63,10 +67,14 @@ function EditProfile(){
         localStorage.setItem("phoneNumber", result.phoneNumber);
         localStorage.setItem("lastName", result.lastName);
         localStorage.setItem("firstName", result.firstName);
-        setFirstName(result.firstName)
-        setLastName(result.lastName)
+        setFirstName(result.firstName);
+        setLastName(result.lastName);
 
-        navigate("")
+        setisSpinning(false);
+        setResponseMessage("Update successful");
+        window.location.reload();
+
+       // navigate("")
     };
 
     //Handle File
@@ -155,6 +163,7 @@ function EditProfile(){
                     </div>
                 </div>
             </div>
+            {responseMessage && <ResponseMessage message={responseMessage}  />}
         </div>
         // {responseMessage && <ResponseMessage message={responseMessage}/>}
 

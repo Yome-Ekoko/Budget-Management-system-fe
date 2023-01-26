@@ -38,7 +38,9 @@ function SignUp() {
       console.log(response);
       setisSpinning(false);
       setResponseMessage("Registration successful");
-      navigate("/login");
+
+      setTimeout (()=>{ navigate("/login");},3000)
+     
     } catch (error) {
       console.log(error.message);
       setisSpinning(false);
