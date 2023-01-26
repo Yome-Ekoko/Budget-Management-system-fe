@@ -10,11 +10,12 @@ import {Link} from "react-router-dom";
 function BudgetCategoryList(props) {
     return (
         <div className="budget-category-list-decapay-sY5">
-            <img className="ellipse-4-18V" src="/assets/ellipse-4-hKF.png" />
+            <img className="back-arrow-f3f" src="/assets/back-arrow.png"/>
             <div className="frame-8797-XMj">
                 <div className="frame-8780-TWH">
-                    <img className="back-arrow-aqo" src="/assets/back-arrow-mRT.png" />
-                    <p className="back-Xm3">Back</p>
+                <Link to="/decapay/dashboard" className="back-zbj">
+              Back
+            </Link>
                 </div>
 
                 <div className="frame-8796-dZB">
