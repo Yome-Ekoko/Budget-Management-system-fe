@@ -15,6 +15,8 @@ function BudgetCreatedDash() {
   const [lineId, setLineId] = useState(null);
   const [budgetItem, setBudgetItem] = useState({});
   const [budgetLineItemList, setBudgetLineItemList] = useState([]);
+
+  
   useEffect(() => {
     if (token !== null) {
       getBudgetItem();

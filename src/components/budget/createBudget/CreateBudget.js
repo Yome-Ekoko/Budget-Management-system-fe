@@ -10,6 +10,10 @@ function CreateBudget() {
   const [period, changePeriod] = useState(null);
   const [formData, setFormData] = useState({});
 
+  const refreshPage = () => {
+    window.location.reload(false);
+  }
+
   const budgetForm = useRef(null);
 
   const [responseMessage, setResponseMessage] =useState(null);
@@ -171,7 +175,7 @@ function CreateBudget() {
               <input className="frame-3-WA5" value="Done" type="submit" />
             </Link> */}
 
-            <button className="frame-3-WA5" type="submit" >
+            <button className="frame-3-WA5" type="submit"  onClick={refreshPage}>
              Done <Loader status={isSpinning}/>
             </button>
           </div>
