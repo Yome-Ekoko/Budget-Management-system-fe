@@ -13,6 +13,8 @@ function UploadPhoto(){
     const [image, setImage] = useState(null);
     const [imageUrl, setImageUrl]= useState('');
 
+
+
     const refreshPage = () => {
         window.location.reload(false);
       }
@@ -25,6 +27,8 @@ function UploadPhoto(){
     }, []);
 
     const handleFile = (e)=>{
+        const preview = document.getElementById("preview");
+        preview.src = URL.createObjectURL(e.target.files[0]);
         setImage(e.target.files[0]);
         console.log(e.target.files[0])
     }
@@ -73,6 +77,7 @@ function UploadPhoto(){
                         aria-expanded="false"
                     >
                         <img
+                            id="preview"
                             src={imageUrl}
                             className="rounded-circle profile-img"
                             height={22}
