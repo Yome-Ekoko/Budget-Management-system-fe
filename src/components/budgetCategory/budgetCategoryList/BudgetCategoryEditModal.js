@@ -46,6 +46,7 @@ import Loader from "../../../globalresources/Loader";
                 console.log(response);
                 setResponseMessage("Budget Category updated");
                 setisSpinning(false);
+                window.location.reload();
 
             }).catch(error => {
                 console.log(error.message);
