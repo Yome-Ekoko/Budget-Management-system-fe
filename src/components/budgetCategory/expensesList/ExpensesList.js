@@ -44,17 +44,18 @@ function ExpensesList() {
     <div className="expenses-decapay-du3">
       <img className="ellipse-4-yCD" src="/assets/ellipse-4-NUq.png" />
       <div className="frame-8782-VRT">
-        <div className="frame-8781-pTj">
-          <div className="frame-8780-k6V">
-            <img className="back-arrow-gkq" src="/assets/back-arrow-URw.png" />
-            <Link>
-              <div className="back-241">Back</div>
+      
+            <div className="frame-8797-XMj">
+                <div className="frame-8780-TWH">
+                <Link to="/decapay/dashboard" className="back-zbj">
+                <img className="back-arrow-f3f" src="/assets/back-arrow.png"/>
             </Link>
-          </div>
-
-          <p className="transportation-expenses-7r9"></p>
+           </div>
+          {/* <p className="transportation-expenses-7r9">{category}</p> */}
+          
         </div>
 
+        
         {expenses
           .slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
           .map((expense) => (
