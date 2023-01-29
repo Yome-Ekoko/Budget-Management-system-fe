@@ -51,8 +51,6 @@ function CreateCategory() {
           <Link to="/decapay/budget-category" className="back-zbj">
           <img className="back-arrow-f3f" src="/assets/back-arrow.png" />
           </Link>
-         
-         
         </div>
         <div className="frame-8793-h1T">
           <p className="what-do-you-usually-spend-on-qNZ">

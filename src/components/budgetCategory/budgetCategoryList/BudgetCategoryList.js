@@ -14,7 +14,7 @@ function BudgetCategoryList(props) {
             <div className="frame-8797-XMj">
                 <div className="frame-8780-TWH">
                 <Link to="/decapay/dashboard" className="back-zbj">
-              Back
+                    Back
             </Link>
                 </div>
 

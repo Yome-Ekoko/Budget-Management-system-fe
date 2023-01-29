@@ -88,19 +88,9 @@ const InternalHeader = () => {
 
             {/* Avatar */}
             <div>
-              <DropdownButton
-                  id="dropdown-basic-button"
-                  title="Profile"
-                  variant="success"
-                  className="large-button"
-              >
-                <Dropdown.Item as={Link} to="upload" className="dropdown-item">Upload Photo</Dropdown.Item>
-                <Dropdown.Item as={Link} to="profile" className="dropdown-item">Edit Profile</Dropdown.Item>
-                <Dropdown.Item onClick={handleLogout} className="dropdown-item">Log out</Dropdown.Item>
-              </DropdownButton>
+
             </div>
             <li className="nav-item dropdown">
-
               <a
                 className="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
                 href="#!"
@@ -117,13 +107,18 @@ const InternalHeader = () => {
                   loading="lazy"
                 />
                 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                <h2 className="profile-name"> {firstname +" "+ lastname}</h2>
+                <h3 className="profile-name">{firstname +" "+ lastname} &#x2304;</h3>
                 &nbsp;&nbsp; &nbsp;&nbsp;
               </a>
               <ul
                 className="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuLink"
               >
+                <li>
+                  <Link to="/decapay/upload" className="dropdown-item">
+                    Upload Photo
+                  </Link>
+                </li>
                 <li>
                   <Link to="profile" className="dropdown-item">
                     My profile
