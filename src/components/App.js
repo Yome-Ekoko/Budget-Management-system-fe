@@ -19,6 +19,8 @@ import InternalLayout from "./Layout/internal_layout/InternalLayout";
 import ResetPassword from "../passwordreset/ResetPassword";
 import EditProfile from "./editProfile/EditProfile";
 import UploadPhoto from "./editProfile/UploadPhoto";
+import SingleBudget from "./dashboard/budgetCreatedDashboard/SingleBudget";
+import EditBudget from "./budget/createBudget/EditBudget";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -75,6 +77,8 @@ function App() {
           }
         />
 
+        <Route path="single-budget/:id" element={<SingleBudget />} />
+
         <Route
           path="budget"
           element={
@@ -83,6 +87,7 @@ function App() {
         />
 
         <Route path="create-budget" element={<CreateBudget />} />
+        <Route path="edit-budget/:id" element={<EditBudget />} />
         <Route path="budget-created" element={<BudgetCreated />} />
         <Route
           path="create-budget-category"

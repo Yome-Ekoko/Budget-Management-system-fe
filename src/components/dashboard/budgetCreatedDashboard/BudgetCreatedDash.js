@@ -3,7 +3,7 @@ import "./BudgetCreatedDash.css";
 import { Calendar } from "react-calendar";
 import LineItemModal from "../../modals/LineItemModals";
 import axios from "axios";
-import { baseEndpoint } from "../../../globalresources/Config";
+import {baseEndpoint, currencySymbol} from "../../../globalresources/Config";
 import LogModal from "../../modals/LogModal";
 import { Link } from "react-router-dom";
 
@@ -68,7 +68,7 @@ function BudgetCreatedDash() {
                       <div className="frame-8625-Qg9">
                         {" "}
                         <div className="my-budget-Y1f">My Budget</div>{" "}
-                        <div className="n3000000-TPX">N{budgetItem.amount}</div>{" "}
+                        <div className="n3000000-TPX"><span dangerouslySetInnerHTML={ { __html: currencySymbol.naira}}></span> {budgetItem.amount}</div>{" "}
                       </div>{" "}
                       <img
                         className="ellipse-3-BaR"
@@ -91,7 +91,7 @@ function BudgetCreatedDash() {
                           </div>{" "}
                           <div className="n20000-1Sy">
                             {" "}
-                            N{budgetItem.totalAmountSpent}
+                            <span dangerouslySetInnerHTML={ { __html: currencySymbol.naira}}></span> {budgetItem.totalAmountSpent}
                           </div>{" "}
                         </div>{" "}
                         <img

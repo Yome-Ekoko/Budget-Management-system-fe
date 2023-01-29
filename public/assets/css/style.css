@@ -206,7 +206,7 @@ span.modal-title{
   align-items: center;
 }
 
-.budgetCategoryList{
+.budgetCategoryList, .budgetList{
   position:relative;
 
 }
@@ -215,6 +215,11 @@ span.modal-title{
   position:absolute;
   right:20px;
   top :5px;
+}
+
+.budgetList img{
+  position:absolute;
+  right:20px;
 }
 
 .dropdown-bg{
@@ -236,6 +241,12 @@ img.dropdown-image{
 .button-dropdown {
   position:absolute;
   right: 20px;
+}
+
+.item-box{
+  height: 150px !important;
+  border-radius: 10px;
+
 }
 
 

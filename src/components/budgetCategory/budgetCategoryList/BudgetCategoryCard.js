@@ -90,6 +90,7 @@ const BudgetCategoryCard = ({ item }) => {
               open={open}
               budgetCategoryId={budgetCategoryId}
               budgetCategoryName={budgetCategoryName}
+              onChange={setBudgetCategoryName}
 
           />
 

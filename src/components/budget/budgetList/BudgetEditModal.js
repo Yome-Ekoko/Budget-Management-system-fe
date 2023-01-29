@@ -3,32 +3,37 @@ import {baseEndpoint} from "../../../globalresources/Config";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Loader from "../../../globalresources/Loader";
-import {elementSelector} from "../../../globalresources/elementSelector";
 
 
 
-    const BudgetCategoryEditModal = (props)  => {
+    const BudgetEditModal = (props)  => {
         // props.persist();
 
-        const [budgetCatName, setBudgetCatName]= useState(props.budgetCategoryName);
+        const [budgetName, setBudgetName]= useState(props.budgetName);
         const [responseMessage, setResponseMessage] = useState(null);
         const [isSpinning, setisSpinning] = useState(false);
 
-        const handleBudgetCategorySubmit = (e) => {
+        //setBudgetCatName(props.budgetCategoryName);
+            //alert(budgetCatName)
+        //
+        // useEffect(()=>{
+        //     if(props.budgetCategoryName!==""){
+        //         setBudgetCatName(props.budgetCategoryName);
+        //     }
+        //
+        // },[budgetCatName],)
+
+        const handleBudgetSubmit = (e) => {
             e.preventDefault();
 
             setResponseMessage(null);
             setisSpinning(true);
+            const categoryName = {name: budgetName};
 
-            setBudgetCatName(props.onChange(e.target.value));
-            let budgetCatName= elementSelector(".catName").value;
-
-            const categoryName = {name: budgetCatName};
-
-            editBudgetCategory(categoryName);
+            editBudget(categoryName);
 
         }
-        const editBudgetCategory = (data) => {
+        const editBudget = (data) => {
             const token = localStorage.getItem("token");
             fetch(baseEndpoint + "/api/v1/budgets/category/update/"+props.budgetCategoryId, {
                 method: "PUT",
@@ -60,15 +65,31 @@ import {elementSelector} from "../../../globalresources/elementSelector";
                         aria-describedby="modal-modal-description"
                     >
                         <Box className="modal-box">
-                            <div><span class="modal-title">Budget Category Update</span>
+                            <div><span class="modal-title">Budget Update</span>
                                 <button className="btnClose" onClick={props.handleClose}>X</button>
                             </div>
-                            <form onSubmit={handleBudgetCategorySubmit}>
+                            <br/>
+                            <form onSubmit={handleBudgetSubmit}>
+                                <span>Budget Amount</span>
                                 <input name="categoryName"
-                                       className="frame-2-PYV form-input catName" value={props.budgetCategoryName}
-                                       placeholder="Enter name of item"
-                                       onChange={(e) => props.onChange(e.target.value)}
-                                       readOnly={false}
+                                       className="frame-2-PYV form-input" value={props.budgetAmount}
+                                       placeholder={props.budgetAmount}
+                                       onChange={(e) => props.setBudgetAmount(e.target.value)}
+                                       readOnly={false} required type="number"
+                                />
+                                <span >Total Amount spent</span>
+                                <input name="amountSpent"
+                                       className="frame-2-PYV form-input" value={props.amountSpent}
+                                       placeholder={props.amountSpent}
+                                       onChange={(e) => setBudgetName(e.target.value)}
+                                       readOnly={false} required type="number"
+                                />
+                                <span >Percentage</span>
+                                <input name="budgetName"
+                                       className="frame-2-PYV form-input" value={props.percentage}
+                                       placeholder={props.percentage}
+                                       onChange={(e) => setBudgetName(e.target.value)}
+                                       readOnly={false} required type="number"
                                 />
                                 <br/><br/>
                                 {responseMessage && <span className="text-success responseStatus">{responseMessage}</span>}
@@ -85,4 +106,4 @@ import {elementSelector} from "../../../globalresources/elementSelector";
     }
 
 
-export default BudgetCategoryEditModal;
+export default BudgetEditModal;
