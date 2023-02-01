@@ -146,7 +146,7 @@ function BudgetCreatedDash() {
                         </span>{" "}
                         <span className="projected-amount-n5500-TRs-sub-1">
                           {" "}
-                          N{item.projectedAmount}
+                          <span dangerouslySetInnerHTML={ { __html: currencySymbol.naira}}></span> {item.projectedAmount}
                         </span>{" "}
                       </div>{" "}
                       <div className="frame-8751-Y5w">
@@ -159,7 +159,7 @@ function BudgetCreatedDash() {
                           </span>{" "}
                           <span className="amount-so-far-n2500-hUd-sub-1">
                             {" "}
-                            N{item.amountSpentSoFar}
+                            <span dangerouslySetInnerHTML={ { __html: currencySymbol.naira}}></span> {item.amountSpentSoFar}
                           </span>{" "}
                         </div>{" "}
                         <Link

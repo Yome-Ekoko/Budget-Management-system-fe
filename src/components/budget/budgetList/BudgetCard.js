@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from "react";
-import "./BudgetCategoryList.css";
+import React, {useEffect, useState} from "react"
 import {baseEndpoint} from "../../../globalresources/Config";
 import BudgetEditModal from "./BudgetEditModal";
 import Loader from "../../../globalresources/Loader";

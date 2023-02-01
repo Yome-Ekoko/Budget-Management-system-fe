@@ -3,6 +3,7 @@ import {baseEndpoint} from "../../../globalresources/Config";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Loader from "../../../globalresources/Loader";
+import {useParams} from "react-router-dom";
 
 
 
@@ -12,6 +13,8 @@ import Loader from "../../../globalresources/Loader";
         const [budgetName, setBudgetName]= useState(props.budgetName);
         const [responseMessage, setResponseMessage] = useState(null);
         const [isSpinning, setisSpinning] = useState(false);
+
+        const {id}= useParams();
 
         //setBudgetCatName(props.budgetCategoryName);
             //alert(budgetCatName)
@@ -35,7 +38,7 @@ import Loader from "../../../globalresources/Loader";
         }
         const editBudget = (data) => {
             const token = localStorage.getItem("token");
-            fetch(baseEndpoint + "/api/v1/budgets/category/update/"+props.budgetCategoryId, {
+            fetch(baseEndpoint + "/api/v1/budgets/update/"+id, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",
@@ -50,7 +53,7 @@ import Loader from "../../../globalresources/Loader";
 
             }).catch(error => {
                 console.log(error.message);
-                setResponseMessage("error : " + error.message + "- Budget category not updated");
+                setResponseMessage("error : " + error.message + "- Budget updated");
                 setisSpinning(false);
             });
         };
