@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState} from "react";
+import "./BudgetList.css";
 import {baseEndpoint} from "../../../globalresources/Config";
 import BudgetEditModal from "./BudgetEditModal";
 import Loader from "../../../globalresources/Loader";
@@ -91,7 +92,7 @@ const BudgetCard = ({ item }) => {
                 Total amount spent: <span>{item.totalAmountSpent}</span>
             </p>
             <p className="budget-amount-WzV">
-                Percentage: <span>{item.percentage * 100} %</span>
+                Percentage: <span>{item.percentage} %</span>
             </p>
         </div>
 
@@ -107,7 +108,7 @@ const BudgetCard = ({ item }) => {
                          data-id={item.id}
                          data-amount={item.amount}
                          data-amount_spent={item.totalAmountSpent}
-                         data-percentage = {item.percentage * 100}>Edit</Link></li>
+                         data-percentage = {item.percentage}>Edit</Link></li>
                   <li>
                       <a className="dropdown-item" data-id={item.budgetId} href="#"
                          onClick={handleDelete}>Delete
@@ -130,7 +131,7 @@ const BudgetCard = ({ item }) => {
               </ul>
           </div>
 
-          <BudgetEditModal
+          {/* <BudgetEditModal
               handleClose={handleClose}
               handleOpen={handleOpen}
               open={open}
@@ -143,7 +144,7 @@ const BudgetCard = ({ item }) => {
               setAmountSpent = {amountSpent}
               setPercentage = {setAmountSpent}
 
-          />
+          /> */}
 
     </div>
   );
