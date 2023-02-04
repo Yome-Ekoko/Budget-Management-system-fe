@@ -41,7 +41,6 @@ const LogModal = ({ setLogModal, logModal, lineId }) => {
           }
         );
         console.log(response);
-        window.location.reload();
       } catch (error) {
         console.log(error.message);
       }

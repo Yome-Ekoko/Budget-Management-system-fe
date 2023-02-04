@@ -8,8 +8,15 @@ import {elementSelector} from "../../../globalresources/elementSelector";
 import {baseEndpoint} from "../../../globalresources/Config";
 
 function EditBudget() {
-  const [period, changePeriod] = useState(null);
+  const [budgetPeriod, changePeriod] = useState(null);
   const [formData, setFormData] = useState({});
+
+  // const [budgetTitle, setBudgetTitle] = useState("");
+  // const [budgetAmount, setBudgetAmount] = useState("");
+  // const [budgetDescription, setBudgetDescription] = useState("");
+
+
+
   const {id} = useParams();
   const token = localStorage.getItem("token");
   const refreshPage = () => {
@@ -33,21 +40,23 @@ function EditBudget() {
     setResponseMessage(null);
     setisSpinning(true);
 
-    const data = { ...formData, period };
 
-    switch (period) {
+    const data = { ...formData, budgetPeriod};
+
+    switch (budgetPeriod) {
       case "MONTHLY":
-        data.month = formData.budgetStartDate.split("-")[1];
-        data.year = formData.budgetStartDate.split("-")[0];
+        data.month = formData.startDate.split("-")[1];
+        data.year = formData.startDate.split("-")[0];
         break;
       case "ANNUAL":
-        data.year = formData.budgetStartDate.split("-")[0];
+        data.year = formData.startDate.split("-")[0];
         break;
       default:
         break;
     }
 
     updateBudget(data);
+    console.log(data)
   };
 
   const updateBudget = async (data) => {
@@ -63,7 +72,7 @@ function EditBudget() {
       );
 
       console.log(response);
-      setResponseMessage("Budget added");
+      setResponseMessage("Budget updated");
       setisSpinning(false);
      // budgetForm.current.reset();
      // elementSelector("form").reset();
@@ -73,13 +82,25 @@ function EditBudget() {
       setisSpinning(false);
     }
   };
+  // const title = localStorage.getItem("title")
+  // const amount = localStorage.getItem("amount")
+  // const bperiod = localStorage.getItem("period")
+  // const description = localStorage.getItem("description")
+  //
+  // setBudgetTitle(title)
+  // setBudgetAmount(amount)
+  // setBudgetPeriod(bperiod)
+  // setBudgetDescription(description)
 
   const selector = (el) => document.querySelector(el);
   useEffect(() => {
-    if (period === null) {
+
+
+
+    if (budgetPeriod === null) {
       selector(".start-date").style.display = "none";
       selector(".end-date").style.display = "none";
-    } else if (period === "CUSTOM") {
+    } else if (budgetPeriod === "CUSTOM") {
       selector(".start-date").style.display = "block";
       selector(".end-date").style.display = "block";
     } else {
@@ -88,7 +109,7 @@ function EditBudget() {
     }
 
     getBudgetItem(id);
-  }, [period]);
+  }, [budgetPeriod]);
 
 
   const getBudgetItem = async (id) => {
@@ -99,7 +120,26 @@ function EditBudget() {
         },
       });
       const item = response.data;
+      // setBudgetTitle(item.title)
+      // setBudgetAmount(item.amount)
+
+      //setBudgetDescription(item.description)
+
+
+      setFormData({
+        title: item.title,
+        amount : item.amount,
+        description : item.description,
+        startDate : item.startDate,
+        endDate : item.endDate,
+        year : 2100,
+        month : 12
+      })
+
+    //   changePeriod(item.budgetPeriod)
+
       console.log(item);
+
       //setBudgetItem(item);
       //setBudgetLineItemList(item.lineItemRests);
     } catch (error) {
@@ -130,6 +170,7 @@ function EditBudget() {
                   name="title"
                   type="text"
                   onChange={handleChange}
+                  value={formData.title}
                 />
               </div>
               <div className="frame-6-VqK">
@@ -140,6 +181,7 @@ function EditBudget() {
                   name="amount"
                   type="number"
                   onChange={handleChange}
+                  value={formData.amount}
                 />
               </div>
               <div className="frame-7-41F">
@@ -147,9 +189,9 @@ function EditBudget() {
                 <select
                   className="frame-2-LzM"
                   onChange={(e) => changePeriod(e.target.value)}
-                  name="period"
+                  name="budgetPeriod"
                 >
-                  <option value="null"></option>
+                {/* <option value={budgetPeriod} selected>{budgetPeriod}</option> */}
                   <option value="DAILY">DAILY</option>
                   <option value="WEEKLY">WEEKLY</option>
                   <option value="MONTHLY">MONTHLY</option>
@@ -164,7 +206,7 @@ function EditBudget() {
                     <input
                       className="frame-2-Bi9"
                       type="date"
-                      name="budgetStartDate"
+                      name="startDate"
                       onChange={handleChange}
                     />
                   </div>
@@ -173,7 +215,7 @@ function EditBudget() {
                     <input
                       className="frame-2-Bi9"
                       type="date"
-                      name="budgetEndDate"
+                      name="endDate"
                       onChange={handleChange}
                     />
                   </div>
@@ -187,6 +229,7 @@ function EditBudget() {
                   type="text"
                   name="description"
                   onChange={handleChange}
+                  value= {formData.description}
                 />
               </div>
             </div>
@@ -194,7 +237,7 @@ function EditBudget() {
               <input className="frame-3-WA5" value="Done" type="submit" />
             </Link> */}
 
-            <button className="frame-3-WA5" type="submit"  onClick={refreshPage}>
+            <button className="frame-3-WA5" type="submit">
              Done <Loader status={isSpinning}/>
             </button>
           </div>

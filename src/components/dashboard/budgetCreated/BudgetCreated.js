@@ -15,9 +15,9 @@ function BudgetCreated() {
   const [budgetItem, setBudgetItem] = useState({});
   const [budgetLineItemList, setBudgetLineItemList] = useState([]);
 
-  // const refreshPage = () => {
-  //   window.location.reload(false);
-  // }
+  const refreshPage = () => {
+    //window.location.reload(false);
+  }
 
   useEffect(() => {
     if (token !== null) {
@@ -42,7 +42,7 @@ function BudgetCreated() {
 
   const createBudgetHandler = () => {
     setItemModal(true);
-   // refreshPage();
+    refreshPage();
   };
 
   return (
@@ -54,13 +54,13 @@ function BudgetCreated() {
                 <div className="row">
                   <div className="col-12 mt-b-5 budget-header">
                     <span>My Budget</span><br/><br/>
-                    <h1><span dangerouslySetInnerHTML={ { __html: currencySymbol.naira}}></span> {budgetItem.amount}</h1>
+                    <h1><span dangerouslySetInnerHTML={ { __html: currencySymbol.naira}}></span>{budgetItem.amount}</h1>
                   </div>
 
                   <div className="col-6 mt-b-5">
                     <table border="2">
                       <tr><td>Total Amount</td></tr>
-                      <tr><td><h1> <span dangerouslySetInnerHTML={ { __html: currencySymbol.naira}}></span> {budgetItem.totalAmountSpent}</h1></td><td>
+                      <tr><td><h1> &#8358;{budgetItem.totalAmountSpent}</h1></td><td>
                         <img
                             className="frame-8759-fQm"
                             src="/assets/frame-8759.png"

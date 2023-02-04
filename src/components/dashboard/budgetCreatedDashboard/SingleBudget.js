@@ -108,7 +108,7 @@ function SingleBudget() {
                                                 <div className="percentage-xmX">Percentage</div>{" "}
                                                 <div className="item-375-Hoo">
                                                     {" "}
-                                                    {budgetItem.percentage * 100}%
+                                                    {budgetItem.percentage}%
                                                 </div>{" "}
                                             </div>{" "}
                                             <img
@@ -191,7 +191,7 @@ function SingleBudget() {
                                             </div>{" "}
                                             <div className="item-375-s3f">
                                                 {" "}
-                                                {item.percentageSpentSoFar * 100}%
+                                                {item.percentageSpentSoFar}%
                                             </div>{" "}
                                         </div>{" "}
                                     </div>{" "}

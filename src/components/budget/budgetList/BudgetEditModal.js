@@ -3,7 +3,6 @@ import {baseEndpoint} from "../../../globalresources/Config";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Loader from "../../../globalresources/Loader";
-import {useParams} from "react-router-dom";
 
 
 
@@ -13,8 +12,6 @@ import {useParams} from "react-router-dom";
         const [budgetName, setBudgetName]= useState(props.budgetName);
         const [responseMessage, setResponseMessage] = useState(null);
         const [isSpinning, setisSpinning] = useState(false);
-
-        const {id}= useParams();
 
         //setBudgetCatName(props.budgetCategoryName);
             //alert(budgetCatName)
@@ -38,7 +35,7 @@ import {useParams} from "react-router-dom";
         }
         const editBudget = (data) => {
             const token = localStorage.getItem("token");
-            fetch(baseEndpoint + "/api/v1/budgets/update/"+id, {
+            fetch(baseEndpoint + "/api/v1/budgets/category/update/"+props.budgetCategoryId, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",
@@ -53,7 +50,7 @@ import {useParams} from "react-router-dom";
 
             }).catch(error => {
                 console.log(error.message);
-                setResponseMessage("error : " + error.message + "- Budget updated");
+                setResponseMessage("error : " + error.message + "- Budget category not updated");
                 setisSpinning(false);
             });
         };

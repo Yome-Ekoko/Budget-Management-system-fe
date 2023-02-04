@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
 import { Params, useParams } from "react-router-dom";
-import {baseEndpoint, currencySymbol} from "../../../globalresources/Config";
+import { baseEndpoint } from "../../../globalresources/Config";
 import { Link } from "react-router-dom";
 
 import Pagination from "react-paginate";
@@ -63,7 +63,7 @@ function ExpensesList() {
               <div className="frame-8775-Br1">
                 <div className="frame-8772-Vrh">
                   <p className="amount-qff">Amount</p>
-                  <p className="n5000-AC9"><span dangerouslySetInnerHTML={ { __html: currencySymbol.naira}}></span> {expense.amount}</p>
+                  <p className="n5000-AC9">{expense.amount}</p>
                 </div>
                 <div className="frame-8773-HXf">
                   <p className="description-Eho">Description</p>
@@ -80,10 +80,10 @@ function ExpensesList() {
               </div>
             </div>
           ))}
-        {/*<Pagination*/}
-        {/*  pageCount={Math.ceil(expenses.length / itemsPerPage)}*/}
-        {/*  onPageChange={({ selected }) => setCurrentPage(selected)}*/}
-        {/*/>*/}
+        <Pagination
+          pageCount={Math.ceil(expenses.length / itemsPerPage)}
+          onPageChange={({ selected }) => setCurrentPage(selected)}
+        />
       </div>
     </div>
   );

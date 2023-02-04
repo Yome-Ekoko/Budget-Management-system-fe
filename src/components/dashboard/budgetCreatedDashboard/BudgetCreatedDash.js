@@ -107,7 +107,7 @@ function BudgetCreatedDash() {
                         <div className="percentage-xmX">Percentage</div>{" "}
                         <div className="item-375-Hoo">
                           {" "}
-                          {budgetItem.percentage * 100}%
+                          {budgetItem.percentage}%
                         </div>{" "}
                       </div>{" "}
                       <img
@@ -146,7 +146,7 @@ function BudgetCreatedDash() {
                         </span>{" "}
                         <span className="projected-amount-n5500-TRs-sub-1">
                           {" "}
-                          <span dangerouslySetInnerHTML={ { __html: currencySymbol.naira}}></span> {item.projectedAmount}
+                          N{item.projectedAmount}
                         </span>{" "}
                       </div>{" "}
                       <div className="frame-8751-Y5w">
@@ -159,7 +159,7 @@ function BudgetCreatedDash() {
                           </span>{" "}
                           <span className="amount-so-far-n2500-hUd-sub-1">
                             {" "}
-                            <span dangerouslySetInnerHTML={ { __html: currencySymbol.naira}}></span> {item.amountSpentSoFar}
+                            N{item.amountSpentSoFar}
                           </span>{" "}
                         </div>{" "}
                         <Link
@@ -190,7 +190,7 @@ function BudgetCreatedDash() {
                       </div>{" "}
                       <div className="item-375-s3f">
                         {" "}
-                        {item.percentageSpentSoFar * 100}%
+                        {item.percentageSpentSoFar}%
                       </div>{" "}
                     </div>{" "}
                   </div>{" "}
